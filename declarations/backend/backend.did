@@ -1,0 +1,23 @@
+type Registration = 
+ record {
+   email: text;
+   name: text;
+ };
+type Recipe = 
+ record {
+   cookingTime: nat;
+   image: text;
+   ingredients: vec Ingredient;
+   instructions: text;
+   title: text;
+ };
+type Ingredient = 
+ record {
+   name: text;
+   quantity: opt text;
+ };
+service : {
+  getRegistrations: () -> (vec Registration) query;
+  getSampleRecipes: () -> (vec Recipe);
+  registerForUpdates: (name: text, email: text) -> ();
+}
